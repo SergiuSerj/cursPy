@@ -35,3 +35,24 @@ else:
     print("Datele introduse nu sunt corecte")
 
 
+"""Obs.:
+- Daca introduc litere acolo unde ar trebui sa am numere, programul ruleaza mai departe. Aici ar fi trebuit sa
+ma puna sa reintroduc corect (deci un while).
+
+Pentru a va corecta un numar anterior scrieti litera `C`
+Introdu primu numar: a
+introdu al doilea numar: d
+Introdu o operatie (+, -, *, /): -
+Datele introduse nu sunt corecte
+
+- In alta ordine de idei as fi vrut sa am input primul numar dupa care operatie si pe urma al doilea numar. 
+- 12 / 0 ... programul crapa. Ar fi trebuit sa am o validare acolo ptr ca nu e posibila impartirea la 0.
+- Daca introduc o litera la input operatie, programul este terminat fara validare. Nu ma anunta nimic.
+
+Introdu primu numar: 12
+introdu al doilea numar: 4
+Introdu o operatie (+, -, *, /): a
+
+Concluzie:
+Ar mai fi de imbunatatit aspectele de mai sus.
+"""

@@ -17,3 +17,6 @@ def check_even_odd(number_added):
 
 number_added = int(input("Enter some number: "))
 check_even_odd(number_added)
+
+
+"""Ce se intampla daca nu introduc cifre de la tastatura? Ex: abc :)"""

@@ -9,3 +9,6 @@ elif number == 0:
 elif number < 0:
     number = abs(number)
     print(f"Numarul este negativ si l-am transformat in mumarul pozitiv : {number}")
+
+
+"""Ce se intampla daca nu introduc cifre de la tastatura? Ex: abc :). In rest e foarte bine"""

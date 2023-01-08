@@ -15,3 +15,5 @@ print(result)
 
 # nu prea am inteles exercitiul. o sa mai revin asupra lui
 
+""" Esti foarte aproape. Mai ai putin de rafinat la el. Incearca sa intelegi ce se intampla defapt in acel for"""
+

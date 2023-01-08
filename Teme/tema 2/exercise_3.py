@@ -7,3 +7,4 @@ if (year % 400 == 0) or (year %100 != 0) and (year %4 ==0):
 else:
     print("Anul introdus nu este un an bisesct")
 
+"""Ce se intampla daca nu introduc cifre de la tastatura? Ex: abc :). In rest e foarte bine"""

@@ -20,3 +20,5 @@ if choise in list_menu:
         print("Cautare in lista de cumparaturi")
 else:
     print("Alegerea nu exista. Reincercati")
+
+"""Ce se intampla daca nu introduc cifre de la tastatura? Ex: abc :). In rest e foarte bine"""
