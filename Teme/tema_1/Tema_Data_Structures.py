@@ -13,3 +13,5 @@ result += var_string[start_index:]
 
 print(result)
 
+# nu prea am inteles exercitiul. o sa mai revin asupra lui
+

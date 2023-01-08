@@ -1,10 +1,10 @@
 def calculate():
-    # Get the user's input
+
     operation = input("Enter an operation (+, -, *, /): ")
     num1 = float(input("Enter a number: "))
     num2 = float(input("Enter another number: "))
 
-    # Perform the calculation
+
     if operation == '+':
         result = num1 + num2
     elif operation == '-':
