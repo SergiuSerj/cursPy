@@ -71,3 +71,13 @@ while True:
     break
 
 #  Mai am de cosmetizat putin si cred pot reusi sa il fac mai curat
+
+"""Programul asta atata timp cat apeleaza functia validare() in care primul lucru gasit este print-ul cu CNP CORECT!,
+nu o sa gaseasca niciodata CNP invalid :))))!
+Atentie si la functii! Nu are ce sa caute 2 print-uri intr-o functie si fara return.
+Am introdus un CNP care avea doar o cifra modificata fata de un CNP valid, si cu toatea astea nu imi spune ca nu ar fi
+ok cifra de control (print-ul de la linia 49)
+Incearca sa-ti faci ordine in pasii de executie, in sensul ca ar trebui sa validezi rand pe rand sexul, data, locul
+nasterii si cifra de control... if oricare din astea nu se respecta => cnp invalid else => cnp valid.
+Daca reusesti sa scoti o varianta mai buna sau daca ai nevoie de ceva indrumari .... te rog sa ma anunti  
+"""
