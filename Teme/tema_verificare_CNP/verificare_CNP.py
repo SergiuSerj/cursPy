@@ -71,3 +71,4 @@ while True:
     break
 
 #  Mai am de cosmetizat putin si cred pot reusi sa il fac mai curat
+#  Nu am reusit inca sa fac calculatorul

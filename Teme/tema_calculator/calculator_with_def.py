@@ -1,25 +1,74 @@
-def calculate():
+numere = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+semne_operatie = ("+", "-", "*", "/")
+result = int
 
-    operation = input("Enter an operation (+, -, *, /): ")
-    num1 = float(input("Enter a number: "))
-    num2 = float(input("Enter another number: "))
-
-
-    if operation == '+':
-        result = num1 + num2
-    elif operation == '-':
-        result = num1 - num2
-    elif operation == '*':
-        result = num1 * num2
-    elif operation == '/':
-        result = num1 / num2
+while True:
+    numar_x = input("Intrdu primu numar: ").lower()
+    if numar_x.isdigit():
+        x = int(numar_x)
+        if x > 0:
+            break
+        else:
+            continue
     else:
-        result = None
+        print("Caracterul introdus nu este corect.")
 
-    return result
+while True:
+    operation = input("Intrdu operatia pe care urmeaza sa o faci: \n")
+    if operation in semne_operatie and len(operation) == 1:
+        break
+    # elif operation == "c":
+    else:
+        print("Semnul introdus nu este corect: ")
 
-result = calculate()
-if result is not None:
-    print("The result is", result)
+while True:
+    numar_y = input("Intrdu al doilea numar: ").lower()
+    if numar_y.isdigit():
+        y = int(numar_y)
+        if y > 0:
+            break
+        else:
+            continue
+    else:
+        print("Caracterul introdus nu este corect.")
+
+
+if operation == '+':
+    result = x + y
+    print(f"Rezulatatul este: {result}")
+elif operation == '-':
+    result = x - y
+    print(f"Rezulatatul este: {result}")
+elif operation == '*':
+    result = x * y
+    print(f"Rezulatatul este: {result}")
+elif operation == '/':
+    result = x / y
+    print(f"Rezulatatul este: {result}")
 else:
-    print("Invalid input")
+    print("nu este valid")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

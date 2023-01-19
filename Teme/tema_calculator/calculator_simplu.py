@@ -34,7 +34,6 @@ else:
     result = None
     print("Datele introduse nu sunt corecte")
 
-
 """Obs.:
 - Daca introduc litere acolo unde ar trebui sa am numere, programul ruleaza mai departe. Aici ar fi trebuit sa
 ma puna sa reintroduc corect (deci un while).
