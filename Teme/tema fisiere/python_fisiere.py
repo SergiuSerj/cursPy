@@ -3,6 +3,8 @@ import datetime
 import operator
 from datetime import datetime
 
+"""M-ai putin de lucru la ea"""
+
 """Adaugare categorii"""
 # def adaugare_categorii()
 #     with open("categorii.txt", "a") as file:
