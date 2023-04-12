@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+{% load i18n %}
+<html>
+    <head>
+{#        DTL - django template tag#}
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row>">
+                <nav>
+                    {% if request.user.is_authenticated and request.path != '/' %}
+                        <span style="color:blue"> Hi, {{ request.user.username|upper }}! </span>
+                    {% endif %}
+                    <a class="btn" href="/admin">Admin</a>
+                    {% if request.user.is_authenticated and request.path != '/' %}
+                        <a class="btn" href="{% url 'locations:lista_locatii' %}">Locatii</a>
+                        <a class="btn btn-sm btn-danger" href="{% url 'logout' %}">Logout</a>
+                        {% if ready_to_work %}
+                            <a class="btn btn-sm btn-success" href="{% url 'locations:start_pontaj' %}">Pornire Pontaj</a>
+                        {% else %}
+                            <a class="btn btn-sm btn-danger" href="{% url 'locations:stop_pontaj' %}">Stop Pontaj</a>
+                        {% endif %}
+                        <a class='btn btn-sm btn-primary' href="{% url 'userprofile:utilizator_nou' %}">New Account</a>
+                    {% endif %}
+                </nav>
+            </div>
+        </div>
+        {% block title %}
+
+        {% endblock %}
+    </body>
+
+    <footer class="footer">
+{#        <div>#}
+            <p style="margin-top: 30%" class="copyright pull-left">© {% now 'Y' %} Scoala Informala de IT</p>
+{#        </div>#}
+    </footer>
 </html>

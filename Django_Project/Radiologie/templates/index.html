@@ -1,6 +1,6 @@
 <html>
 <head>
-    {#        DTL - django template tag#}
+    {#        DTL - django template tag #}
     {% load static %}
     <meta charset="utf-8">
     <title>DentCare - Dental Clinic Website Template</title>
@@ -46,6 +46,17 @@
 
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <!-- login_index Libraries -->
+    <!-- login_index Libraries -->
+
+
+
+
+    <!-- login_index Libraries -->
+    <!-- login_index Libraries -->
+
+
 
 
 
@@ -116,7 +127,11 @@
             </div>
             <!--<button type="button" class="btn text-dark" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fa fa-search"></i></button>  -->
             <a href="{% url 'homepage:appointment' %}" class="btn btn-primary py-2 px-4 ms-3">Appointment</a>
-            <a href="{% url 'homepage:index' %}" class="btn btn-primary py-2 px-4 ms-3">Log In</a>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="btn btn-danger py-2 px-4 ms-3">Log out</a>
+                {% else %}
+                <a href="{% url 'login' %}" class="btn btn-primary py-2 px-4 ms-3">Log In</a>
+            {% endif %}
         </div>
     </nav>
     <!-- Navbar End -->
@@ -142,11 +157,12 @@
 
     {% block content %}
 
+
     {% endblock %}
 
 
-
     <!-- Newsletter Start -->
+
     <div class="container-fluid position-relative pt-5 wow fadeInUp" data-wow-delay="0.1s" style="z-index: 1;">
         <div class="container">
             <div class="bg-primary p-5">
@@ -236,6 +252,40 @@
     <script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
     <script src="{% static 'lib/twentytwenty/jquery.event.move.js' %}"></script>
     <script src="{% static 'lib/twentytwenty/jquery.twentytwenty.js' %}"></script>
+
+  <!-- dash -->
+
+    <script src="{% static 'assets_dashbord/plugins/common/common.min.js' %}"></script>
+    <script src="{% static 'assets_dashbord/js/custom.min.js' %}"></script>
+    <script src="{% static 'assets_dashbord/js/settings.js' %}"></script>
+    <script src="{% static 'assets_dashbord/js/gleek.js' %}"></script>
+    <script src="{% static 'assets_dashbord/js/styleSwitcher.js' %}"></script>
+
+    <!-- Chartjs -->
+    <script src="{% static 'assets_dashbord/plugins/chart.js/Chart.bundle.min.js' %}"></script>
+    <!-- Circle progress -->
+    <script src="{% static 'assets_dashbord/plugins/circle-progress/circle-progress.min.js' %}"></script>
+    <!-- Datamap -->
+    <script src="{% static 'assets_dashbord/plugins/d3v3/index.js' %}"></script>
+    <script src="{% static 'assets_dashbord/plugins/topojson/topojson.min.js' %}"></script>
+    <script src="{% static 'assets_dashbord/plugins/datamaps/datamaps.world.min.js' %}"></script>
+    <!-- Morrisjs -->
+    <script src="{% static 'assets_dashbord/plugins/raphael/raphael.min.js' %}"></script>
+    <script src="{% static 'assets_dashbord/plugins/morris/morris.min.js' %}"></script>
+    <!-- Pignose Calender -->
+    <script src="{% static 'assets_dashbord/plugins/moment/moment.min.js' %}"></script>
+    <script src="{% static 'assets_dashbord/plugins/pg-calendar/js/pignose.calendar.min.js' %}"></script>
+    <!-- ChartistJS -->
+    <script src="{% static 'assets_dashbord/plugins/chartist/js/chartist.min.js' %}"></script>
+    <script src="{% static 'assets_dashbord/plugins/chartist-plugin-tooltips/js/chartist-plugin-tooltip.min.js' %}"></script>
+
+
+
+    <script src="{% static 'assets_dashbord/js/dashboard/dashboard-1.js' %}"></script>
+
+
+
+
 </body>
 
 </html>
