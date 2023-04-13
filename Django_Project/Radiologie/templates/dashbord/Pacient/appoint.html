@@ -1,7 +1,9 @@
 {% extends 'dashbord_index.html' %}
 {% load static %}
+{% load list_filters %}
+
 {% block dashbord %}
-    <div class="content-body">
+<div class="content-body">
     <div class="container-fluid mt-3">
         <div class="row" style="display:none">
             <div class="col-lg-12">
@@ -148,12 +150,61 @@
         <form method="POST">
             {% csrf_token %}
             {% for field in form %}
-            {{ field.label }} {{ field }} {{ field.errors }}
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    {{ field.label }}
+                </div>
+                <div class="col-auto">
+                    {{ field }}
+                </div>
+                <div class="col-auto">
+                    <span id="passwordHelpInline" class="form-text">
+                      {{ field.errors }}
+                    </span>
+                </div>
+            </div>
+
+            {% endfor %}
+            Price:
+            {% for doctor in doctors %}
+            <div class="row">
+                <span class="prices" id="service-price-{{ doctor.id }}" style="display: none"><strong>{{ doctor.price }} (€{{ prices|at_index:forloop.counter0 }})</strong></span>
+            </div>
             {% endfor %}
             <button type="submit" class="btn btn-success">Salveaza</button>
-<!--            <p>{{ gigel.url }} {{ gigel.action }}</p>-->
+            <!--            <p>{{ gigel.url }} {{ gigel.action }}</p>-->
         </form>
+
     </div>
 </div>
+<script>
+    const selectInput = document.getElementById('id_doctor');
+    let pricesSpans = document.getElementsByClassName('prices');
+    currentlySelectedVal = selectInput.value;
+    console.log(selectInput);
+    console.log(currentlySelectedVal);
+    let selectedSpann = document.getElementById('service-price-' + currentlySelectedVal);
+    let prices = document.getElementsByClassName('prices');
+    for (var i = 0; i < prices.length; i++) {
+        prices[i].style.display = "none";
+    }
+
+    // Show the selected element
+    selectedSpann.style.display = "block";
+</script>
+<script>
+    const select = document.getElementById('id_doctor');
+    select.addEventListener('change', (event) => {
+        const selectedValue = event.target.value;
+        let selectedSpan = document.getElementById('service-price-' + selectedValue);
+        let pricesSpans = document.getElementsByClassName('prices')
+        for (var i = 0; i < pricesSpans.length; i++) {
+            pricesSpans[i].style.display = "none";
+        }
+
+        // Show the selected element
+        selectedSpan.style.display = "block";
+    });
+</script>
 
 {% endblock %}
