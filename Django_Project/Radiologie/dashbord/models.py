@@ -1,6 +1,7 @@
 from django.db import models
 from datetime import datetime
 from django.contrib.auth.models import User, AbstractUser
+import requests
 
 # Create your models here.
 Service_choises = (
@@ -29,11 +30,22 @@ class Patient(models.Model):
     address = models.CharField(max_length=255)
     created_at = models.DateTimeField(default=datetime.now, blank=True)
 
+    def __str__(self):
+        return f'{self.user.first_name} {self.user.last_name}'
+
 
 class Doctor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     service = models.CharField(max_length=50, choices=Service_choises, default="Control de rutina")
+    price = models.FloatField(blank=False, null=False, default=450)
     created_at = models.DateTimeField(default=datetime.now, blank=True)
+
+    def __str__(self):
+        url = f'https://api.exchangerate.host/convert?from=RON&to=EUR&amount={str(self.price)}'
+        response = requests.get(url)
+        data = response.json()
+        eurPrice = round(float(data['result']), 2)
+        return f'Dr. {self.user.first_name} {self.user.last_name}'
 
 
 class Appointment(models.Model):

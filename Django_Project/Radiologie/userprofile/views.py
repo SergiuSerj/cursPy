@@ -15,11 +15,15 @@ from userprofile.forms import NewAccountForm
 
 # Create your views here.
 
-class CreateNewAccount(LoginRequiredMixin, CreateView):
+class CreateNewAccount(CreateView):
     model = User
     template_name = 'aplicatie1/locations_form.html'
     # fields = ['first_name', 'last_name', 'username', 'email']
     form_class = NewAccountForm
+
+    # def form_valid(self, form):
+    #     form.instance.is_staff = True
+    #     return super().form_valid(form)
 
     # def get_object(self, queryset=None):
     #     print(self.object)
@@ -27,7 +31,7 @@ class CreateNewAccount(LoginRequiredMixin, CreateView):
     def get_success_url(self):
         psw = ''.join(random.SystemRandom().choice(
             string.ascii_uppercase + string.ascii_lowercase + string.digits + '!$%?#@') for _ in range(8))
-        # print(self.object.id)
+        print(self.object.id)
         if User.objects.filter(id=self.object.id).exists():
             user_instance = User.objects.get(id=self.object.id)
         # if (user_instance := User.objects.get(id=self.object.id)) and user_instance.exists():
@@ -39,7 +43,7 @@ class CreateNewAccount(LoginRequiredMixin, CreateView):
                                            from_email='contact@test.ro', to=[user_instance.email])
             email.attach_alternative(msg_html, 'text/html')
             email.send()
-        return reverse('locations:lista_locatii')
+        return reverse('homepage:index')
 
     def form_invalid(self, form):
         print(form.errors)

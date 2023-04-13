@@ -1,9 +1,7 @@
 {% extends 'dashbord_index.html' %}
 {% load static %}
-{% load list_filters %}
-
 {% block dashbord %}
-<div class="content-body">
+    <div class="content-body">
     <div class="container-fluid mt-3">
         <div class="row justify-content-center">
             <div class="col-lg-12">
@@ -41,34 +39,5 @@
         </div>
     </div>
 </div>
-<script>
-    const selectInput = document.getElementById('id_doctor');
-    let pricesSpans = document.getElementsByClassName('prices');
-    currentlySelectedVal = selectInput.value;
-    console.log(selectInput);
-    console.log(currentlySelectedVal);
-    let selectedSpann = document.getElementById('service-price-' + currentlySelectedVal);
-    let prices = document.getElementsByClassName('prices');
-    for (var i = 0; i < prices.length; i++) {
-        prices[i].style.display = "none";
-    }
-
-    // Show the selected element
-    selectedSpann.style.display = "block";
-</script>
-<script>
-    const select = document.getElementById('id_doctor');
-    select.addEventListener('change', (event) => {
-        const selectedValue = event.target.value;
-        let selectedSpan = document.getElementById('service-price-' + selectedValue);
-        let pricesSpans = document.getElementsByClassName('prices')
-        for (var i = 0; i < pricesSpans.length; i++) {
-            pricesSpans[i].style.display = "none";
-        }
-
-        // Show the selected element
-        selectedSpan.style.display = "block";
-    });
-</script>
 
 {% endblock %}
